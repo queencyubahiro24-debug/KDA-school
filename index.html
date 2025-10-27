@@ -3,116 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KDA Student Achievements</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KDA Student Achievements - Celebrate Success</title>
+    <style>
+        /* Basic inline styles for visibility - REPLACE WITH EXTERNAL CSS */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #003366; color: white; padding: 1em 0; }
+        nav { display: flex; justify-content: center; }
+        nav a { color: white; text-decoration: none; padding: 0 1.5em; font-weight: bold; }
+        .container { width: 90%; margin: 20px auto; }
+        .filter-bar { background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .achievement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .achievement-card { background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+        .achievement-card:hover { transform: translateY(-5px); }
+        .card-image { width: 100%; height: 200px; background-color: #ccc; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9em; }
+        .card-content { padding: 15px; }
+        .card-category { color: #0099cc; font-size: 0.8em; font-weight: bold; margin-bottom: 5px; }
+        .card-title { font-size: 1.2em; margin: 0 0 10px 0; }
+        .card-link { display: block; text-align: right; color: #003366; text-decoration: none; font-size: 0.9em; }
+    </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <header>
-        <h1>KDA Student Achievements</h1>
+        <div style="text-align: center; margin-bottom: 10px;">
+            <h1 style="margin: 0; font-size: 2em;">👑 KDA Success Stories</h1>
+            <p style="margin: 0;">Celebrating King David Academy Student Achievements</p>
+        </div>
         <nav>
-            <ul>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#profiles">Student Profiles</a></li>
-                <li><a href="#gallery">Photo & Video Gallery</a></li>
-                <li><a href="#news">News & Updates</a></li>
-                <li><a href="#admin">Admin Panel</a></li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="spotlights.html">Student Spotlights</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="news.html">News & Updates</a>
         </nav>
     </header>
 
-    <!-- Search and Filter -->
-    <section id="search">
-        <h2>Search & Filter Achievements</h2>
-        <input type="text" id="searchBox" placeholder="Search by student name or achievement...">
-        <button onclick="searchAchievements()">Search</button>
-    </section>
+    <main class="container">
+        <h2>🎉 All Student Achievements</h2>
 
-    <!-- Achievement Page -->
-    <section id="achievements">
-        <h2>Recent Achievements</h2>
-        <div class="achievement-card">
-            <h3>Jane Uwimana – Top of the Class 2025</h3>
-            <p>Jane achieved the highest grades in the science department this year.</p>
-        </div>
-        <div class="achievement-card">
-            <h3>Samuel Hakizimana – Football MVP</h3>
-            <p>Led the KDA football team to win the regional tournament.</p>
-        </div>
-        <div class="achievement-card">
-            <h3>Esther Mukamana – Art Exhibition Winner</h3>
-            <p>Won 1st place at the National Youth Art Competition.</p>
-        </div>
-    </section>
+        <div class="filter-bar">
+            <form id="achievement-filters" style="display: flex; gap: 15px; align-items: center;">
+                <label for="category">Filter by Category:</label>
+                <select id="category" name="category">
+                    <option value="all">All</option>
+                    <option value="academic">Academic</option>
+                    <option value="sports">Sports</option>
+                    <option value="arts">Arts/Culture</option>
+                    <option value="leadership">Leadership</option>
+                </select>
 
-    <!-- Student Profiles -->
-    <section id="profiles">
-        <h2>Student Profiles</h2>
-        <div class="profile-card">
-            <img src="student1.jpg" alt="Jane">
-            <h3>Jane Uwimana</h3>
-            <p>Science student passionate about technology and innovation.</p>
+                <label for="grade">Grade Level:</label>
+                <select id="grade" name="grade">
+                    <option value="all">All Grades</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+                
+                <input type="text" placeholder="Search by name or keyword..." style="padding: 8px; border: 1px solid #ccc; flex-grow: 1;">
+            </form>
         </div>
-        <div class="profile-card">
-            <img src="student2.jpg" alt="Samuel">
-            <h3>Samuel Hakizimana</h3>
-            <p>Sports leader and captain of the football team.</p>
+
+        <div class="achievement-grid" id="achievement-results">
+
+            <div class="achievement-card" data-category="academic" data-grade="12">
+                <div class="card-image">Image Placeholder: John Doe wins Science Olympiad</div>
+                <div class="card-content">
+                    <p class="card-category">Academic</p>
+                    <h3 class="card-title">John Doe Wins National Science Olympiad</h3>
+                    <p>Grade 12 student John Doe secured first place in the annual national competition...</p>
+                    <a href="achievement-detail-1.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+
+            <div class="achievement-card" data-category="sports" data-grade="10">
+                <div class="card-image">Image Placeholder: Junior Team Soccer Victory</div>
+                <div class="card-content">
+                    <p class="card-category">Sports</p>
+                    <h3 class="card-title">Junior Soccer Team Takes League Championship</h3>
+                    <p>The KDA U16 Soccer Team finished the season undefeated and claimed the title...</p>
+                    <a href="achievement-detail-2.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+
+            <div class="achievement-card" data-category="arts" data-grade="11">
+                <div class="card-image">Image Placeholder: Sarah's Art Exhibition</div>
+                <div class="card-content">
+                    <p class="card-category">Arts/Culture</p>
+                    <h3 class="card-title">Sarah M. Features in City-Wide Art Show</h3>
+                    <p>Grade 11 artist Sarah was selected to display her ceramic work at the City Gallery...</p>
+                    <a href="achievement-detail-3.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+
+            </div>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; background-color: #333; color: white; margin-top: 30px;">
+        <p>&copy; 2025 King David Academy. Proudly celebrating our students.</p>
+        </footer>
+
+    </body>
+</html>
+/* BASE STYLES */
+:root {
+    --kda-blue: #003366; /* Deep King David Blue */
+    --kda-light-blue: #0077c2;
+    --kda-gold: #ffc72c;
+    --text-dark: #333;
+    --background-light: #f7f7f7;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+/* HEADER AND NAVIGATION */
+header {
+    background-color: var(--kda-blue);
+    color: white;
+    padding: 1.5em 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1.5em;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--kda-gold);
+}
+
+/* MAIN HEADINGS */
+h2 {
+    color: var(--kda-blue);
+    border-bottom: 3px solid var(--kda-gold);
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+/* FILTER BAR */
+.filter-bar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+#achievement-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px;
+    align-items: center;
+}
+
+.filter-bar label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.filter-bar select,
+.filter-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+/* ACHIEVEMENT GRID & CARDS */
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.achievement-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.achievement-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    background-color: #ddd;
+    background-image: linear-gradient(135deg, var(--kda-light-blue) 0%, #a0c3e1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-category {
+    color: var(--kda-light-blue);
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-title {
+    font-size: 1.4em;
+    margin: 0 0 10px 0;
+    color: var(--kda-blue);
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--kda-gold);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.card-link:hover {
+    color: var(--kda-light-blue);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--kda-blue);
+    color: white;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+/* MEDIA QUERIES for Responsiveness */
+@media (max-width: 768px) {
+    #achievement-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-bar select,
+    .filter-bar input[type="text"] {
+        width: 100%;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+}
+💻 Revised HTML ( achievements.html)
+Here is the HTML updated to link to the new external CSS file.
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDA Student Achievements - Celebrate Success</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <div class="container" style="text-align: center;">
+            <h1>👑 KDA Success Stories</h1>
+            <p>Celebrating King David Academy Student Achievements</p>
         </div>
-    </section>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="spotlights.html">Student Spotlights</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="news.html">News & Updates</a>
+        </nav>
+    </header>
 
-    <!-- Photo & Video Gallery -->
-    <section id="gallery">
-        <h2>Photo & Video Gallery</h2>
-        <div class="gallery">
-            <img src="gallery1.jpg" alt="Event 1">
-            <img src="gallery2.jpg" alt="Event 2">
-            <video controls width="300">
-                <source src="achievement_video.mp4" type="video/mp4">
-            </video>
+    <main class="container">
+        <h2>🎉 All Student Achievements</h2>
+
+        <div class="filter-bar">
+            <form id="achievement-filters">
+                <label for="category">Filter by Category:</label>
+                <select id="category" name="category">
+                    <option value="all">All</option>
+                    <option value="academic">Academic</option>
+                    <option value="sports">Sports</option>
+                    <option value="arts">Arts/Culture</option>
+                    <option value="leadership">Leadership</option>
+                </select>
+
+                <label for="grade">Grade Level:</label>
+                <select id="grade" name="grade">
+                    <option value="all">All Grades</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+                
+                <input type="text" placeholder="Search by name or keyword..." aria-label="Search achievements">
+            </form>
         </div>
-    </section>
 
-    <!-- News & Updates -->
-    <section id="news">
-        <h2>News & Updates</h2>
-        <article>
-            <h3>New Achievement Wall Launched!</h3>
-            <p>The school has introduced a new digital achievement wall to recognize outstanding students.</p>
-        </article>
-        <article>
-            <h3>Sports Day Highlights</h3>
-            <p>KDA hosted its annual sports day full of energy and teamwork!</p>
-        </article>
-    </section>
+        <div class="achievement-grid" id="achievement-results">
 
-    <!-- Admin Panel -->
-    <section id="admin">
-        <h2>Admin Panel</h2>
-        <p>Only authorized staff can add, edit, or delete achievements here.</p>
-        <form>
-            <input type="text" placeholder="Achievement Title">
-            <textarea placeholder="Description"></textarea>
-            <button type="submit">Add Achievement</button>
-        </form>
-    </section>
+            <div class="achievement-card" data-category="academic" data-grade="12">
+                <div class="card-image">Science Olympiad Winner </div>
+                <div class="card-content">
+                    <p class="card-category">Academic</p>
+                    <h3 class="card-title">John Doe Wins National Science Olympiad</h3>
+                    <p>Grade 12 student John Doe secured first place in the annual national competition...</p>
+                    <a href="achievement-detail-1.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+
+            <div class="achievement-card" data-category="sports" data-grade="10">
+                <div class="card-image">Junior Team Soccer Victory 
+
+[Image of a winning soccer team]
+</div>
+                <div class="card-content">
+                    <p class="card-category">Sports</p>
+                    <h3 class="card-title">Junior Soccer Team Takes League Championship</h3>
+                    <p>The KDA U16 Soccer Team finished the season undefeated and claimed the title...</p>
+                    <a href="achievement-detail-2.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+
+            <div class="achievement-card" data-category="arts" data-grade="11">
+                <div class="card-image">Sarah's Art Exhibition </div>
+                <div class="card-content">
+                    <p class="card-category">Arts/Culture</p>
+                    <h3 class="card-title">Sarah M. Features in City-Wide Art Show</h3>
+                    <p>Grade 11 artist Sarah was selected to display her ceramic work at the City Gallery...</p>
+                    <a href="achievement-detail-3.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+            
+             <div class="achievement-card" data-category="leadership" data-grade="12">
+                <div class="card-image">Student Council President </div>
+                <div class="card-content">
+                    <p class="card-category">Leadership</p>
+                    <h3 class="card-title">Maria T. Recognized for Community Service</h3>
+                    <p>Outgoing Student Council President Maria was awarded the prestigious KDA Service Star...</p>
+                    <a href="achievement-detail-4.html" class="card-link">Read More &raquo;</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2025 KDA School | Designed by Students for Students</p>
+        <p>&copy; 2025 King David Academy. Proudly celebrating our students. | <a href="admin-login.html" style="color: #ffc72c;">Admin Login</a></p>
     </footer>
 
-    <script>
-        function searchAchievements() {
-            const query = document.getElementById('searchBox').value.toLowerCase();
-            const cards = document.querySelectorAll('.achievement-card');
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? 'block' : 'none';
-            });
-        }
-    </script>
-
-</body>
+    </body>
 </html>
 
 
+   
